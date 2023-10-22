@@ -34,3 +34,12 @@ button {
   width: 120px;
   height: 30px;
 }
+
+/* CONVENTOR */
+.size {
+  width: 400px;
+  height: auto;
+  background-color: rgb(216, 216, 216);
+  position: absolute;
+  padding: 10px;
+}
