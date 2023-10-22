@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>Searching</h1>
+      <input placeholder="type name" v-model="searchName" />
+      <table>
+        <tr v-for="(stud, index) in filteredStudents" :key="index">
+          <td :class="{ 'red': stud.highlighted }">{{ stud.name }}</td>
+          <td>
+            <input type="checkbox" v-model="stud.workDone" />
+          </td>
+          <td>{{ stud.group }}</td>
+          <td>{{ stud.grade }}</td>
+          <td><a @click="deleteStudent(stud.id)">Delete</a></td>
+        </tr>
+      </table>
+
+      <div class="addStudent">
+        <input placeholder="add name" v-model="newStudent.name" />
+        <input v-model="newStudent.workDone" type="checkbox" />
+        <select v-model="newStudent.group" id="myComboBox" name="group">
+          <option value="placeholder" disabled selected>Group:</option>
+          <option value="RPZ1">RPZ1</option>
+          <option value="RPZ2">RPZ2</option>
+        </select>
+        <input v-model="newStudent.grade" type="number" placeholder="grade" />
+        <button @click="addStudent()">Add student</button>
+      </div>
+      <h3 v-for="s in students">{{ s }}</h3>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
