@@ -41,13 +41,13 @@ createApp({
       }
     },
     addStudent() {
-      newStudent.id = this.students.length + 1;
-      this.students.push({ ...newStudent });
+      this.newStudent.id = this.students.length + 1;
+      this.students.push({ ...this.newStudent });
 
-      newStudent.name = "";
-      newStudent.workDone = false;
-      newStudent.group = "";
-      newStudent.grade = "";
+      this.newStudent.name = "";
+      this.newStudent.workDone = false;
+      this.newStudent.group = "";
+      this.newStudent.grade = "";
     },
   },
 }).mount("#app");
