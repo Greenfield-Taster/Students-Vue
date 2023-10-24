@@ -34,11 +34,12 @@
         <button @click="addStudent()">Add student</button>
       </div>
       <h3 v-for="s in students">{{ s }}</h3>
+      <br />
       <!-- CONVERTER -->
       <div class="size">
-        <h2>Currency Converter </h2>
+        <h2>Currency Converter</h2>
         <span>Enter Amount: </span>
-        <input v-model="number" type="number" />
+        <input v-model="amount" type="number" />
         <br />
         <span>Convert From: </span>
         <select v-model="convertFrom" id="convertFrom">
@@ -54,11 +55,12 @@
         </select>
         <div class="result">
           <h4>
-            {{ number }}
-            <!-- {{ number }} {{ convertFrom }} equals {{ result }} {{ convertTo }} -->
+            {{ amount }}
+            <!-- {{ amount }} {{ convertFrom }} equals {{ result }} {{ convertTo }} -->
           </h4>
         </div>
       </div>
+      {{ info }}
     </div>
     <script src="main.js"></script>
   </body>

@@ -7,8 +7,8 @@ console.log(cc.code("EUR"));
 new Vue({
   data() {
     return {
-      number: "",
-      result: "",
+      amount: null,
+      result: null,
       convertFrom: "",
       convertTo: "",
       info: null,
@@ -16,8 +16,8 @@ new Vue({
   },
   mounted() {
     axios
-      .get("https://api.monobank.ua/bank/currency")
-      .then((response) => (console.log(this.info), (this.info = response)));
+      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+      .then((response) => (this.info = response.data.bpi));
   },
   computed: {
     convertCurrency(number, convertFrom, convertTo) {

@@ -13,6 +13,7 @@ createApp({
         group: "",
         grade: "",
         workDone: false,
+        info: null,
       },
     };
   },
