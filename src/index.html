@@ -35,32 +35,35 @@
       </div>
       <h3 v-for="s in students">{{ s }}</h3>
       <br />
-      <!-- CONVERTER -->
-      <div class="size">
-        <h2>Currency Converter</h2>
-        <span>Enter Amount: </span>
-        <input v-model="amount" type="number" />
-        <br />
-        <span>Convert From: </span>
-        <select v-model="convertFrom" id="convertFrom">
-          <option value="placeholder" disabled selected>Value:</option>
-          <option value="Euro">Euro</option>
-          <option value="USDollar">US Dollar</option>
-        </select>
-        <span>Convert To: </span>
-        <select v-model="convertTo" id="convertTo">
-          <option value="placeholder" disabled selected>Value:</option>
-          <option value="Euro">Euro</option>
-          <option value="USDollar">US Dollar</option>
-        </select>
-        <div class="result">
-          <h4>
-            {{ amount }}
-            <!-- {{ amount }} {{ convertFrom }} equals {{ result }} {{ convertTo }} -->
-          </h4>
-        </div>
+    </div>
+    <!-- CONVERTER -->
+    <div id="converter" class="converter">
+      <h2>Currency Converter</h2>
+      <span>Enter Amount: </span>
+      <input v-model="amount" type="number" />
+      <br />
+      <span>Convert From: </span>
+      <select
+        v-model="convertFrom"
+        @change="convertCurrency()"
+        id="convertFrom"
+      >
+        <option value="placeholder" disabled selected>Value:</option>
+        <option value="Euro">Euro</option>
+        <option value="USD">USD</option>
+      </select>
+      <span>Convert To: </span>
+      <select v-model="convertTo" @change="convertCurrency()" id="convertTo">
+        <option value="placeholder" disabled selected>Value:</option>
+        <option value="Euro">Euro</option>
+        <option value="USD">USD</option>
+      </select>
+      <button @click="convertCurrency()">Convert</button>
+      <div class="result">
+        <h4 v-if="result !== null">
+          {{ amount }} {{ convertFrom }} equals {{ result }} {{ convertTo }}
+        </h4>
       </div>
-      {{ info }}
     </div>
     <script src="main.js"></script>
   </body>

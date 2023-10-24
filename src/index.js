@@ -1,6 +1,8 @@
 import { createApp } from "vue";
 import axios from "axios";
 
+import converterApp from "./converter";
+
 createApp({
   data() {
     return {
@@ -52,3 +54,5 @@ createApp({
     },
   },
 }).mount("#app");
+
+converterApp.mount("#converter");
